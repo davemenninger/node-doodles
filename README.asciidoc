@@ -1,0 +1,14 @@
+= node-doodles
+messing with node.js as a learning exercise
+
+== ca 
+
+cellular automata
+
+== emoji
+
+find and replace emoji words in source text
+
+== markov
+
+generate basic markov chains from source text
