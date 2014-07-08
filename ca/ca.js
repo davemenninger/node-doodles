@@ -3,32 +3,22 @@ function r(v,r){
   var left   = v[0] || 0;
   var center = v[1] || 0;
   var right  = v[2] || 0;
-  var t = ''+left+center+right+'';
 
-  //TODO: do this with math instead:
-  var rules = {
-    30:  { '111': 0, '110': 0, '101': 0, '100': 1, '011': 1, '010': 1, '001': 1, '000': 0 },
-    90:  { '111': 0, '110': 1, '101': 0, '100': 1, '011': 1, '010': 0, '001': 1, '000': 0 },
-    110: { '111': 0, '110': 1, '101': 1, '100': 0, '011': 1, '010': 1, '001': 1, '000': 0 },
-    184: { '111': 0, '110': 0, '101': 1, '100': 1, '011': 1, '010': 0, '001': 0, '000': 0 },
-  };
-
-  /*
-  console.log( (r & 1)/1 ); // 0th digit in binary maps to t=000,
-  console.log( (r & 2)/2 ); // 1th digit in binary maps to t=001
-  console.log( (r & 4)/4 );  //...
-  console.log( (r & 8)/8 );
-  console.log( (r & 16)/16 );
-  console.log( (r & 32)/32 );
-  console.log( (r & 64)/64 );
-  console.log( (r & 128)/128 ); // 8th digit in binary maps tp t=111
-  // n = convert t to decimal; 000 = 0, 001 = 1, 010 = 2
-  // n = (v[0])*4 + (v[1])*2 + (v[2])*1
-  // p = 2^n ;  2^0 = 1, 2^1 = 2, 2^2 = 4
-  // return ( ( r & p ) / p );  gives the binary digit in the p-th position of r
-  */
-
-  return rules[r][t];
+  // n is the value of the three neighbors as a decimal number, thus which 3-pattern to match in the rule; e.g. 011 is 3
+  var n =  ( parseInt(left,2)*4 + parseInt(center,2)*2 + parseInt(right,2)*1 );  
+  // p = 2^n is a decimal number that in binary has a 1 in the n-th position (right-to-left); e.g. 2^3=8 and 8 = 00001000
+  var p = Math.pow(2,n);  
+  // (r&p) is logical and of the rule and p to get the value of the binary digit in the rule at the n-th position (right-to-left);
+  // e.g.: decimal 30, aka rule 30, in binary is 00011110 so:
+  //      00011110 <- the rule
+  // AND  00001000 <- which digit we want
+  // -------------
+  //      00001000 <- will either have a single 1 or be all 0's
+  // which is 8 (2^n) again, so divide by p to get 1.
+  // or if the r&p was 0, then dividing by p just gives 0.
+  var result = (r&p)/p ;  
+  
+  return result;
 }
 
 function d(s){
