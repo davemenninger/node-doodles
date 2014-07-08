@@ -17,4 +17,4 @@ generate basic markov chains from source text.  uses `npm markovchain`.
 
 = TODO
 
-* figure out how to do emoji in unicode in javascript to make them tweetable
+* figure out how to do emoji in unicode in javascript to make them tweetable ( https://github.com/iamcal/emoji-data )
