@@ -1,4 +1,5 @@
 = node-doodles
+
 messing with node.js as a learning exercise and to make note of things so i don't have to figure them out twice.  evenutal goal: generative twitter bot(s).
 
 inspiration: http://tinysubversions.com/2012/05/how-i-built-metaphor-a-minute/
