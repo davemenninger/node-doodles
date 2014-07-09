@@ -1,4 +1,4 @@
-function r(v,r){
+function rule(v,r){
   //calculates the next value of a cell given the neighbors in 3-cell array v, and using rule r (decimal number)
   var left   = v[0] || 0;
   var center = v[1] || 0;
@@ -30,13 +30,13 @@ function d(s){
   return text;
 }
 
-function e(s,t){
+function e(s,t,r){
   //evolve from starting array s, t iterations
   var n = s.slice(0);
   for (h = 0; h < t; h++) {
     console.log( d(n) );
     for (i = 0; i < s.length; i++) { 
-      n[i] = r( [ s[i-1], s[i], s[i+1] ], 110 );
+      n[i] = rule( [ s[i-1], s[i], s[i+1] ], r );
     }
     s = n.slice(0);
   }
@@ -56,6 +56,6 @@ for ( i = 0; i < 140; i++ ){
 
 a[70] = 1;
 
-e(a,16);
-e(b,16);
+e(a,50,150);
+e(b,50,150);
 
