@@ -16,6 +16,11 @@ find and replace emoji words in source text.  based on github emoji words ( http
 
 generate basic markov chains from source text.  uses `npm markovchain`.
 
-= TODO
+== twit
 
-* figure out how to do emoji in unicode in javascript to make them tweetable ( https://github.com/iamcal/emoji-data )
+use the twit module to tweet an emoji
+
+== TODO
+
+* combine em.js and em2.js
+* make find-and-replace in em.js smarter( punctuation, etc. )
