@@ -1,5 +1,7 @@
-var emoji = require( "emoji" );
+var fs = require('fs');
+var emoji = require( 'emoji' );
 var emojis = Object.keys( emoji.EMOJI_MAP );
+
 
 var my_map = new Array();
 
@@ -10,6 +12,36 @@ for ( var i = 0; i < emojis.length; i++ )
   my_map[name] = e;
 }
 
-console.log( my_map['bathtub'] );
-console.log( my_map['light rail'] );
-console.log( my_map['clock face one-thirty'] );
+var emoji_names = Object.keys( my_map );
+
+var story_file = __dirname + '/pg8492.txt';
+
+fs.readFile( story_file, 'utf8', function (err, data) {
+  if (err) {
+    console.log( 'Error: ' + err);
+  }
+
+  var regex = /\s+/gi;
+  var sentences = data.trim().replace(regex, ' ').split('.');
+  var ignoreWords = [ 'a', 'de', 'it', 'us' ];
+
+  for ( i = 0; i < sentences.length; i++) {
+    var sentence = sentences[i];
+    var hits = 0;
+
+    for ( j = 0; j < emoji_names.length; j++ ){
+      if ( ignoreWords.indexOf( emoji_names[j] ) < 0 ){
+        var re = new RegExp( ' '+emoji_names[j]+' ' );
+        if( sentence.match(re) ){
+          sentence = sentence.replace( emoji_names[j], my_map[emoji_names[j]] );
+          hits++;
+        }
+      }
+    }
+    if ( hits > 0 ){
+      console.log( sentence );
+    }
+  }
+});
+    
+    
