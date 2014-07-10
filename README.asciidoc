@@ -22,5 +22,4 @@ use the twit module to tweet an emoji
 
 == TODO
 
-* combine em.js and em2.js
-* make find-and-replace in em.js smarter( punctuation, etc. )
+* improve or swap out markovchain

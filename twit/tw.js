@@ -10,7 +10,7 @@ var T = new Twit({
 //
 //  tweet 'hello world!'
 //
-T.post('statuses/update', { status: '👍  #emoji #unicode #nodejs #twit' }, function(err, data, response) {
+T.post('statuses/update', { status: 'obligatory nightly #emoji 🏭  #unicode #nodejs #twit' }, function(err, data, response) {
   console.log(data);
   console.log(err);
 })
