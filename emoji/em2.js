@@ -14,7 +14,7 @@ for ( var i = 0; i < emojis.length; i++ )
 
 var emoji_names = Object.keys( my_map );
 
-var story_file = __dirname + '/pg8492.txt';
+var story_file = __dirname + '/../texts/pg8492.txt';
 
 fs.readFile( story_file, 'utf8', function (err, data) {
   if (err) {
