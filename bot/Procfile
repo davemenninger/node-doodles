@@ -1,1 +1,1 @@
-web: node doodle_ebooks.js
+worker: node doodle_ebooks.js
