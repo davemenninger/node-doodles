@@ -63,6 +63,6 @@ function findSentences() {
 
 findSentences();
 
-// 1000ms * 60s * 60m * 12h
-setInterval( findSentences, 1000 * 60 * 60 * 12 );
+// 1000ms * 60s * 60m * N hours
+setInterval( findSentences, 1000 * 60 * 60 * 4 );
 
