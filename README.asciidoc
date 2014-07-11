@@ -4,22 +4,36 @@ messing with node.js as a learning exercise and to make note of things so i don'
 
 inspiration: http://tinysubversions.com/2012/05/how-i-built-metaphor-a-minute/
 
+== bot
+
+this is the current actually functioning bot
+
 == ca 
 
 ascii cellular automata. ( https://en.wikipedia.org/wiki/Elementary_cellular_automaton )
 
 == emoji
 
-find and replace emoji words in source text.  based on github emoji words ( https://developer.github.com/v3/emojis/ )
+find and replace emoji words in source text.  uses `npm emoji`.
 
 == markov
 
 generate basic markov chains from source text.  uses `npm markovchain`.
 
+== png 
+
+generate a png from data.
+
+== texts
+
+keep all source texts in one place.  source: http://www.gutenberg.org/
+
 == twit
 
-use the twit module to tweet an emoji
+use the twit module to tweet examples.
 
 == TODO
 
 * improve or swap out markovchain
+* turn ca into png
+* tweet a png
