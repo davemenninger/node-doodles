@@ -49,7 +49,13 @@ function findSentences() {
       }
     }
 
-    var tweet = usable_sentences[ Math.floor( (Math.random() * usable_sentences.length) + 1 ) ];
+    var i = Math.floor( (Math.random()*usable_sentences.length)+1 );
+    var tweet = usable_sentences[i];
+    usable_sentences.splice(i,1);
+    if ( usable_sentences.length == 0 ){
+      console.log( "I ran out of sentences!" );
+      clearInterval(timerID);
+    }
     console.log( tweet );
 
     T.post('statuses/update', { status: tweet }, function(err, data, response) {
@@ -64,5 +70,5 @@ function findSentences() {
 findSentences();
 
 // 1000ms * 60s * 60m * N hours
-setInterval( findSentences, 1000 * 60 * 60 * 4 );
+var timerID = setInterval( findSentences, 1000 * 60 * 60 * 5 );
 
