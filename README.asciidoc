@@ -34,6 +34,7 @@ use the twit module to tweet examples.
 
 == TODO
 
+* improve word-matching in emoji-swap: case, punctutation, hyphenation, etc.
 * improve or swap out markovchain
 * turn ca into png
 * tweet a png
