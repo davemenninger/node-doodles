@@ -1,5 +1,5 @@
-var fs = require('fs'),
-    PNG = require('pngjs').PNG;
+var fs = require('fs');
+var PNG = require('pngjs').PNG;
 
 function rule(v,r){
   //calculates the next value of a cell given the neighbors in 3-cell array v, and using rule r (decimal number)
@@ -24,40 +24,35 @@ function rule(v,r){
   return result;
 }
 
-function d(s){
-  //convert an array of ones and zeroes into text that looks better
-  var text = '';
-  for ( i = 0; i < s.length; i++ ){
-    text += (s[i]==0) ? ' ' : '*';
-  }
-  return text;
-}
-
 function e(s,t,r,filename){
   //evolve from starting array s, t iterations
 
+  var i_width = s.length;
+  var i_height = t;
+
   var png = new PNG({
-    height: t,
-    width:  s.length,
+    height: i_height,
+    width:  i_width,
     filterType: -1
   });
 
   var n = s.slice(0);
   for (h = 0; h < t; h++) {
-    console.log( d(n) );
     for (i = 0; i < s.length; i++) { 
       n[i] = rule( [ s[i-1], s[i], s[i+1] ], r );
-      var x=i, y=h;
+
+      var x=i;
+      var y=h;
       var idx = ( s.length*y + x ) << 2;
       var col = ( n[i] == 0 ) ? 0x20 : 0xff;
       png.data[idx]= col;
       png.data[idx+1]= col;
       png.data[idx+2]= col;
       png.data[idx+3]= 0xff;
+
     }
     s = n.slice(0);
   }
-  console.log( d(n) );
   png.pack().pipe(fs.createWriteStream(filename));
   return n;
 }
@@ -67,13 +62,15 @@ function e(s,t,r,filename){
 var a = [];
 var b = [];
 
-for ( i = 0; i < 140; i++ ){
+var width = 400;
+
+for ( i = 0; i < width; i++ ){
   a[i] = 0;
   b[i] = Math.floor( Math.random()*2 );
 }
 
-a[70] = 1;
+a[width/2] = 1;
 
-e(a,100,150,'foo.png');
-e(b,100,150,'bar.png');
+e(a,200,110,'foo.png');
+e(b,200,110,'bar.png');
 
