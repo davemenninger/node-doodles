@@ -71,6 +71,6 @@ for ( i = 0; i < width; i++ ){
 
 a[width/2] = 1;
 
-e(a,200,110,'foo.png');
-e(b,200,110,'bar.png');
+e(a,200,30,'foo.png');
+e(b,200,30,'bar.png');
 

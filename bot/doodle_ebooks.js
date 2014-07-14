@@ -40,9 +40,10 @@ function findSentences() {
 
       for ( j = 0; j < emoji_names.length; j++ ){
         if ( ignore_words.indexOf( emoji_names[j] ) < 0 ){
-          var re = new RegExp( ' '+emoji_names[j]+' ' );
+          var re = new RegExp( '["| |-]+'+emoji_names[j]+'["| |,|;|.]{1,2}', "gi" );
           if( sentence.match(re) && sentence.length < 141 ){
-            sentence = sentence.replace( emoji_names[j], emoji_dic[emoji_names[j]] );
+            var re2 = new RegExp( emoji_name[j], "gi" );
+            sentence = sentence.replace( re2, emoji_dic[emoji_names[j]] );
             usable_sentences.push( sentence );
           }
         }
