@@ -42,7 +42,7 @@ function findSentences() {
         if ( ignore_words.indexOf( emoji_names[j] ) < 0 ){
           var re = new RegExp( '["| |-]+'+emoji_names[j]+'["| |,|;|.]{1,2}', "gi" );
           if( sentence.match(re) && sentence.length < 141 ){
-            var re2 = new RegExp( emoji_name[j], "gi" );
+            var re2 = new RegExp( emoji_names[j], "gi" );
             sentence = sentence.replace( re2, emoji_dic[emoji_names[j]] );
             usable_sentences.push( sentence );
           }
