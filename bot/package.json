@@ -1,0 +1,16 @@
+{
+  "name": "bot",
+  "version": "0.0.0",
+  "description": "",
+  "main": "doodle_ebooks.js",
+  "dependencies": {
+    "emoji": "~0.3.2",
+    "twit": "~1.1.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause"
+}
