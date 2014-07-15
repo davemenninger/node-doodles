@@ -1,5 +1,13 @@
 var fs = require('fs');
 
+// copied from dariusk.  this makes the app run on heroku.  not needed in order to run locally.
+var app = require('express').createServer();
+app.get('/', function(req, res){
+    res.send('Hello world.');
+});
+app.listen(3000);
+
+
 var Twit = require('twit');
 var T = new Twit({
     consumer_key:         process.env.TWIT_CONSUMER_KEY
