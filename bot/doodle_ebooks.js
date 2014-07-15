@@ -73,5 +73,5 @@ function findSentences() {
 findSentences();
 
 // 1000ms * 60s * 60m * N hours
-var timerID = setInterval( findSentences, 1000 * 60 * 60 * 5 );
+var timerID = setInterval( findSentences, 1000 * 60 * 60 * 2.3 );
 

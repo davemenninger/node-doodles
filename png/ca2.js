@@ -62,7 +62,7 @@ function e(s,t,r,filename){
 var a = [];
 var b = [];
 
-var width = 400;
+var width = 800;
 
 for ( i = 0; i < width; i++ ){
   a[i] = 0;
@@ -72,5 +72,5 @@ for ( i = 0; i < width; i++ ){
 a[width/2] = 1;
 
 e(a,200,30,'foo.png');
-e(b,200,30,'bar.png');
+e(b,600,106,'bar.png');
 
