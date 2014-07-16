@@ -4,36 +4,44 @@ messing with node.js as a learning exercise and to make note of things so i don'
 
 inspiration: http://tinysubversions.com/2012/05/how-i-built-metaphor-a-minute/
 
-== bot
+== Usage
 
-this is the current actually functioning bot
+Some minimal attention has been paid to make this work on Heroku.
 
-== ca 
+* make a file called `.env` with the twitter api keys in it
+* to run locally:
+** `foreman start`
+* to run on heroku:
+** `heroku create`
+** if it didn't do this already, then manually do `git remote add heroku <appname's giturl>` ( find out <appname's giturl> with `heroku info` )
+** `heroku config:push` this pushes the `.env` vars; require the `heroku-config` plugin
+** `git push heroku master` 
+** `heroku ps:scale web=1`
+
+== /ca 
 
 ascii cellular automata. ( https://en.wikipedia.org/wiki/Elementary_cellular_automaton )
 
-== emoji
+== /emoji
 
-find and replace emoji words in source text.  uses `npm emoji`.
+find and replace emoji words in source text.  uses `npm install emoji`.
 
-== markov
+== /markov
 
-generate basic markov chains from source text.  uses `npm markovchain`.
+generate basic markov chains from source text.  uses `npm install markovchain`.
 
-== png 
+== /png 
 
-generate a png from data.
+generate a png from data. uses `npm install pngjs`
 
-== texts
+== /texts
 
 keep all source texts in one place.  source: http://www.gutenberg.org/
 
-== twit
+== /twit
 
-use the twit module to tweet examples.
+use `twit` to tweet a sentence.  use `node-twitter` to tweet with an attached image.
 
 == TODO
 
-* improve word-matching in emoji-swap: case, punctutation, hyphenation, etc.
 * improve or swap out markovchain
-* tweet a png
