@@ -31,7 +31,7 @@ for ( var i = 0; i < emojis.length; i++) {
 
 var emoji_names = Object.keys( emoji_dic );
 
-var story_file = __dirname + '/../texts/pg8492.txt';
+var story_file = __dirname + '/texts/pg8492.txt';
 
 function findSentences() {
   fs.readFile( story_file, 'utf8', function (err, data) {
