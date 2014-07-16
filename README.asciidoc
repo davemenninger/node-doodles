@@ -20,7 +20,7 @@ Some minimal attention has been paid to make this work on Heroku.
 
 == /ca 
 
-ascii cellular automata. ( https://en.wikipedia.org/wiki/Elementary_cellular_automaton )
+cellular automata. uses `npm install pngjs` ( https://en.wikipedia.org/wiki/Elementary_cellular_automaton )
 
 == /emoji
 
@@ -29,10 +29,6 @@ find and replace emoji words in source text.  uses `npm install emoji`.
 == /markov
 
 generate basic markov chains from source text.  uses `npm install markovchain`.
-
-== /png 
-
-generate a png from data. uses `npm install pngjs`
 
 == /texts
 
