@@ -2,13 +2,26 @@ function glitch( s ) {
   
   //remove a letter
   var n = Math.floor( Math.random()*(s.length-1) + 1 );
-  s = s.slice(0,n-1)+s.slice(n);
+  var g = s.slice(0,n-1)+s.slice(n);
 
   //add a letter
+  var letters = "abcdefghijklmnopqrstuvwxyz";
+  var c = letters[ Math.floor( Math.random()*letters.length ) ];
+  g = s.slice(0,n)+c+s.slice(n);
 
   //substitute a letter
+  g = s.slice(0,n-1)+c+s.slice(n);
 
   //duplicate a letter
+  g = s.slice(0,n)+s[n]+s.slice(n);
+
+  //alter capitalization
+  g = s.slice(0,n-1)+s[n-1].toUpperCase()+s.slice(n);
+
+  //add quotes, periods, commas, etc.
+  var symbols = "\"\'.,/!@#$%^&*()<>?:[]{}_-+=";
+  var x = symbols[ Math.floor( Math.random()*symbols.length ) ];
+  g = s.slice(0,n)+x+s.slice(n);
 
   //add emoji
 
@@ -37,11 +50,7 @@ function glitch( s ) {
   // ༀམཎིཔདྨེཧཱུྃ།
   // 嗆丵喒侠剣儂
 
-  //alter capitalization
-
-  //add quotes, periods, commas, etc.
-
-  return s;
+  return g;
 
 }
 
