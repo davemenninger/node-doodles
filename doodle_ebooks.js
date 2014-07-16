@@ -1,7 +1,7 @@
 var fs = require('fs');
 
-// copied from dariusk.  this makes the app run on heroku.  not needed in order to run locally.
-var app = require('express').createServer();
+var express = require('express');
+var app = express();
 app.get('/', function(req, res){
     res.send('Hello world.');
 });
