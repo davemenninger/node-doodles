@@ -36,6 +36,12 @@ function e(s,t,r,filename){
     filterType: -1
   });
 
+  var col1 = (Math.floor(Math.random()*256));
+  var col2 = (Math.floor(Math.random()*256));
+  var col3 = (Math.floor(Math.random()*256));
+  var col4 = (Math.floor(Math.random()*256));
+      
+
   var n = s.slice(0);
   for (h = 0; h < t; h++) {
     for (i = 0; i < s.length; i++) { 
@@ -45,9 +51,9 @@ function e(s,t,r,filename){
       var y=h;
       var idx = ( s.length*y + x ) << 2;
       var col = ( n[i] == 0 ) ? 0x20 : 0xff;
-      png.data[idx]= col;
-      png.data[idx+1]= col;
-      png.data[idx+2]= col;
+      png.data[idx]= ( n[i] == 0 ) ? col1 : col4 ;
+      png.data[idx+1]= ( n[i] == 0 ) ? col2 : col4 ;
+      png.data[idx+2]= ( n[i] == 0 ) ? col3 : col4 ;
       png.data[idx+3]= 0xff;
 
     }
@@ -62,7 +68,7 @@ function e(s,t,r,filename){
 var a = [];
 var b = [];
 
-var width = 800;
+var width = 100;
 
 for ( i = 0; i < width; i++ ){
   a[i] = 0;
@@ -72,5 +78,5 @@ for ( i = 0; i < width; i++ ){
 a[width/2] = 1;
 
 e(a,200,30,'foo.png');
-e(b,600,106,'bar.png');
+e(b,100,106,'bar.png');
 
