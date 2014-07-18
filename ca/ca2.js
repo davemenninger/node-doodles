@@ -40,6 +40,7 @@ function e(s,t,r,filename){
   var col2 = (Math.floor(Math.random()*256));
   var col3 = (Math.floor(Math.random()*256));
   var col4 = (Math.floor(Math.random()*256));
+  col4 = Math.floor( 256 - (col1+col2+col3)/3 );
       
 
   var n = s.slice(0);
