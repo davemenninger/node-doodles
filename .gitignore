@@ -1,3 +1,2 @@
 .env
-twit/.env
-bots/.env
+*/.env

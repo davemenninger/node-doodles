@@ -1,3 +1,11 @@
+var Twit = require('twit');
+var T = new Twit({
+    consumer_key:         process.env.TWIT_CONSUMER_KEY
+  , consumer_secret:      process.env.TWIT_CONSUMER_SECRET
+  , access_token:         process.env.TWIT_ACCESS_TOKEN
+  , access_token_secret:  process.env.TWIT_ACCESS_TOKEN_SECRET
+})
+
 function glitch( s ) {
 
   var w = Math.floor( Math.random()*6 + 1 );
@@ -6,6 +14,8 @@ function glitch( s ) {
   var c = letters[ Math.floor( Math.random()*letters.length ) ];
   var symbols = "\"\'.,/!#$%^&*()<>?:[]{}_-+=";
   var x = symbols[ Math.floor( Math.random()*symbols.length ) ];
+  var digits = "0123456789";
+  var d = digits[ Math.floor( Math.random()*digits.length ) ];
   var g;
 
   switch (w) {
@@ -71,8 +81,26 @@ function glitch( s ) {
 
 }
 
-var sentence = "om mani padme hum";
 
-for ( i = 0; i < 50; i++ ){
-  console.log( glitch( sentence ) );
+function om() {
+
+   var tweet = glitch( "om mani padme hum" );
+
+   console.log( tweet );
+
+   /*
+   T.post('statuses/update', { status: tweet }, function(err, data, response) {
+     console.log(data);
+     console.log(err);
+   });
+   */
 }
+
+om();
+
+var hours = 0.25;
+
+console.log( "running every " + hours + " hours..." );
+
+// 1000ms * 60s * 60m * N hours
+var timerID = setInterval( om, 1000 * 60 * 60  * hours );
