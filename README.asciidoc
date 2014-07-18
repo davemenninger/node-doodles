@@ -6,17 +6,21 @@ inspiration: http://tinysubversions.com/2012/05/how-i-built-metaphor-a-minute/
 
 == Usage
 
-Some minimal attention has been paid to make this work on Heroku.
-
 * make a file called `.env` with the twitter api keys in it
 * to run locally:
 ** `foreman start`
-* to run on heroku:
-** `heroku create`
-** if it didn't do this already, then manually do `git remote add heroku <appname's giturl>` ( find out <appname's giturl> with `heroku info` )
-** `heroku config:push` this pushes the `.env` vars; require the `heroku-config` plugin
-** `git push heroku master` 
-** `heroku ps:scale web=1`
+
+If you know what you're doing you can figure out how to get these to run on Heroku, but it is less than ideal for various reasons.
+
+== Bots:
+
+=== /doodle_ebooks
+
+tweets random sentences from The King in Yellow with emoji-words replaced
+
+=== /ommanipadmehum
+
+tweets the mantra "om mani padme hum" every hour.  glitches the phrase randomly each time.
 
 == /ca 
 
