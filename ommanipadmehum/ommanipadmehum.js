@@ -8,7 +8,7 @@ var T = new Twit({
 
 function glitch( s ) {
 
-  var w = Math.floor( Math.random()*6 + 1 );
+  var w = Math.floor( Math.random()*7 + 1 );
   var n = Math.floor( Math.random()*(s.length-1) + 1 );
   var letters = "abcdefghijklmnopqrstuvwxyz";
   var c = letters[ Math.floor( Math.random()*letters.length ) ];
@@ -16,7 +16,7 @@ function glitch( s ) {
   var x = symbols[ Math.floor( Math.random()*symbols.length ) ];
   var digits = "0123456789";
   var d = digits[ Math.floor( Math.random()*digits.length ) ];
-  var g;
+  var g = s;
 
   switch (w) {
     case 1: 
@@ -47,6 +47,10 @@ function glitch( s ) {
     case 6:
     //add quotes, periods, commas, etc.
     g = s.slice(0,n)+x+s.slice(n);
+    break;
+
+    case 7:
+    g = "ཨོཾ་མ་ཎི་པདྨེ་ཧཱུྃ";
     break;
 }
 
@@ -83,22 +87,19 @@ function glitch( s ) {
 
 
 function om() {
-
    var tweet = glitch( "om mani padme hum" );
 
    console.log( tweet );
 
-   /*
    T.post('statuses/update', { status: tweet }, function(err, data, response) {
      console.log(data);
      console.log(err);
    });
-   */
 }
 
 om();
 
-var hours = 0.25;
+var hours = 1;
 
 console.log( "running every " + hours + " hours..." );
 
