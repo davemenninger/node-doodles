@@ -1,27 +1,44 @@
 function glitch( s ) {
-  
-  //remove a letter
-  var n = Math.floor( Math.random()*(s.length-1) + 1 );
-  var g = s.slice(0,n-1)+s.slice(n);
 
-  //add a letter
+  var w = Math.floor( Math.random()*6 + 1 );
+  var n = Math.floor( Math.random()*(s.length-1) + 1 );
   var letters = "abcdefghijklmnopqrstuvwxyz";
   var c = letters[ Math.floor( Math.random()*letters.length ) ];
-  g = s.slice(0,n)+c+s.slice(n);
-
-  //substitute a letter
-  g = s.slice(0,n-1)+c+s.slice(n);
-
-  //duplicate a letter
-  g = s.slice(0,n)+s[n]+s.slice(n);
-
-  //alter capitalization
-  g = s.slice(0,n-1)+s[n-1].toUpperCase()+s.slice(n);
-
-  //add quotes, periods, commas, etc.
-  var symbols = "\"\'.,/!@#$%^&*()<>?:[]{}_-+=";
+  var symbols = "\"\'.,/!#$%^&*()<>?:[]{}_-+=";
   var x = symbols[ Math.floor( Math.random()*symbols.length ) ];
-  g = s.slice(0,n)+x+s.slice(n);
+  var g;
+
+  switch (w) {
+    case 1: 
+    //remove a letter
+    g = s.slice(0,n-1)+s.slice(n);
+    break;
+
+    case 2:
+    //add a letter
+    g = s.slice(0,n)+c+s.slice(n);
+    break;
+
+    case 3:
+    //substitute a letter
+    g = s.slice(0,n-1)+c+s.slice(n);
+    break;
+
+    case 4:
+    //duplicate a letter
+    g = s.slice(0,n)+s[n]+s.slice(n);
+    break;
+
+    case 5: 
+    //alter capitalization
+    g = s.slice(0,n-1)+s[n-1].toUpperCase()+s.slice(n);
+    break;
+
+    case 6:
+    //add quotes, periods, commas, etc.
+    g = s.slice(0,n)+x+s.slice(n);
+    break;
+}
 
   //add emoji
 
