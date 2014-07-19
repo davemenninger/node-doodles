@@ -68,6 +68,8 @@ a[width/2] = 1;
 
 var rule = Math.floor( Math.random()*256 );
 
+console.log( "rule: " + rule );
+
 e(a,height,rule,'foo.png');
 e(b,height,rule,'bar.png');
 
