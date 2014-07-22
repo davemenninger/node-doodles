@@ -14,6 +14,10 @@ If you know what you're doing you can figure out how to get these to run on Hero
 
 == Bots:
 
+=== /cell_automata
+
+tweets random cellular automata with random colors
+
 === /doodle_ebooks
 
 tweets random sentences from The King in Yellow with emoji-words replaced
