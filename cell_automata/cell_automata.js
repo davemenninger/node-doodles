@@ -109,7 +109,7 @@ tweet();
 
 var hours = 5;
 
-//console.log( "running every " + hours + " hours..." );
+console.log( "running every " + hours + " hours..." );
 
 // 1000ms * 60s * 60m * N hours
-//var timerID = setInterval( ca, 1000 * 60 * 60 * hours );
+var timerID = setInterval( tweet, 1000 * 60 * 60 * hours );
